@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const distPath = path.join(__dirname, 'dist');
+const distPath = path.join(__dirname, 'dist', 'gh');
 
 ghpages.publish(distPath, {
 	branch: 'gh-pages',

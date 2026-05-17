@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "build-only": "vite build",
+    "dev": "vite --mode gh-pages",
+    "build:all": "node build.js",
+    "build:gh": "node build.js gh",
+    "build:offline": "node build.js offline",
+    "preview": "vite preview --mode gh-pages",
     "type-check": "vue-tsc --build",
     "deploy": "node deploy.js"
   },
