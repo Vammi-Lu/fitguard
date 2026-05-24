@@ -1,14 +1,27 @@
 <script setup lang="ts">
-import AppHeader from "@/components/AppHeader.vue";
-import AppMain from "@/components/AppMain.vue";
-import AppFooter from "@/components/AppFooter.vue";
+import { provide } from 'vue';
 
+import AppHeader from '@/components/AppHeader.vue';
+import AppMain from '@/components/AppMain.vue';
+import AppFooter from '@/components/AppFooter.vue';
+
+import { activePage } from '@/shared/pages';
 </script>
 
 <template>
   <AppHeader />
-  <AppMain />
+  <AppMain>
+    <component :is="activePage.view" />
+  </AppMain>
   <AppFooter />
 </template>
 
-<style scoped></style>
+<style>
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+}
+</style>
