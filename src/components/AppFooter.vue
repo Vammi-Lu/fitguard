@@ -1,13 +1,7 @@
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style>
-
-</style>
+<style></style>
 
 <template>
-	<div>
-
-	</div>
+  <div clas="footer"></div>
 </template>

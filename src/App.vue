@@ -11,7 +11,7 @@ import { activePage } from '@/shared/pages';
 <template>
   <AppHeader />
   <AppMain>
-    <component :is="activePage.view" />
+    <component :is="activePage.view" v-bind="activePage.viewProps" />
   </AppMain>
   <AppFooter />
 </template>

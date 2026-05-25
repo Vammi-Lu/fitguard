@@ -1,9 +1,9 @@
 <script setup lang="ts"></script>
 
-<style></style>
+<style lang="scss" src="./AppMain.scss" />
 
 <template>
-  <main>
+  <main class="main">
     <slot />
   </main>
 </template>

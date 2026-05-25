@@ -31,12 +31,12 @@ h6 {
 }
 
 p {
-  margin: 0;
+  margin-block: 0;
 }
 
 ul,
 ol {
-  margin: 0;
+  margin-block: 0;
   padding-left: 1.5em;
 }
 
@@ -66,16 +66,37 @@ a {
 }
 
 table {
-  border-collapse: collapse;
+  border: 1px solid $surface-0;
+  border-spacing: 0.5rem;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 th,
 td {
-  padding: 0;
+  padding: 0.5rem;
+  text-align: left;
+  vertical-align: top;
 }
 
 blockquote,
 figure,
 pre {
   margin: 0;
+}
+
+.content-view__main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+
+  & > section:first-child {
+    flex-shrink: 0;
+    width: 40rem;
+  }
+  & > section:last-child {
+    width: 100%;
+  }
 }

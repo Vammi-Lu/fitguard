@@ -1,9 +1,12 @@
-import { computed, defineAsyncComponent, ref, type Component } from 'vue';
+import { computed, defineAsyncComponent, ref, type Component, type DefineComponent } from 'vue';
 
 interface Page {
   path: string;
   label: string;
   view?: Component;
+  viewProps?: {
+    articleData?: () => Promise<{ default: DefineComponent; frontmatter: Record<string, unknown> }>;
+  };
   children?: PageName[];
   parent?: PageName;
 }
@@ -12,12 +15,18 @@ const pagesBase = {
   home: {
     path: '/',
     label: 'Главная',
-    view: defineAsyncComponent(() => import('@/views/HomeView.vue')),
+    view: defineAsyncComponent(() => import('@/views/ContentView.vue')),
+    viewProps: {
+      articleData: () => import('@/articles/about.mdx'),
+    },
   },
   info: {
     path: '/info',
     label: 'Информация',
-    view: defineAsyncComponent(() => import('@/views/HomeView.vue')),
+    view: defineAsyncComponent(() => import('@/views/ContentView.vue')),
+    viewProps: {
+      articleData: () => import('@/articles/information.mdx'),
+    },
   },
   prevention: {
     path: '/prevention',
@@ -26,17 +35,26 @@ const pagesBase = {
   rational: {
     path: '/prevention/rational',
     label: 'Рациональное питание',
-    view: defineAsyncComponent(() => import('@/views/HomeView.vue')),
+    view: defineAsyncComponent(() => import('@/views/ContentView.vue')),
+    viewProps: {
+      articleData: () => import('@/articles/rational-nutrition.mdx'),
+    },
   },
   activity: {
     path: '/prevention/activity',
     label: 'Физическая активность',
-    view: defineAsyncComponent(() => import('@/views/HomeView.vue')),
+    view: defineAsyncComponent(() => import('@/views/ContentView.vue')),
+    viewProps: {
+      articleData: () => import('@/articles/physical-activity.mdx'),
+    },
   },
   bmi: {
     path: '/bmi',
     label: 'Калькулятор ИМТ',
-    view: defineAsyncComponent(() => import('@/views/HomeView.vue')),
+    view: defineAsyncComponent(() => import('@/views/ContentView.vue')),
+    viewProps: {
+      articleData: () => import('@/articles/bmi-calculator.mdx'),
+    },
   },
   profile: {
     path: '/profile',
@@ -65,8 +83,9 @@ export const topLevelPages = Object.fromEntries(
 ) as Record<PageName, (typeof pages)[PageName]>;
 
 const getPageNameFromHash = (): PageName => {
-  const hash = window.location.hash.slice(2);
-  return hash in pages ? (hash as PageName) : 'home';
+  const path = window.location.hash.slice(1);
+  const found = Object.entries(pages).find(([, page]) => page.path === path);
+  return found ? (found[0] as PageName) : 'home';
 };
 
 export const activePageName = ref<PageName>(getPageNameFromHash());
