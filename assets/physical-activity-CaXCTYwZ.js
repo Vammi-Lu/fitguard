@@ -1,0 +1,2 @@
+import{n as e}from"./index-BYzu90vh.js";import{t}from"./jsx-runtime-Cd40Z-In.js";var n=void 0;function r(n){return t(e,{children:[t(`section`,{}),`
+`,t(`section`,{})]})}function i(e={}){let{wrapper:n}=e.components||{};return n?t(n,{...e,children:t(r,{...e})}):r(e)}export{i as default,n as frontmatter};

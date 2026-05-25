@@ -1,1 +1,0 @@
-import{n as e,r as t,t as n}from"./index-zEtQlfpg.js";var r={};function i(n,r){return t(),e(`div`,null,`Это главная`)}var a=n(r,[[`render`,i]]);export{a as default};

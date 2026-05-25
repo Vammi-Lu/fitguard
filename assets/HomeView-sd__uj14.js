@@ -1,0 +1,1 @@
+import{d as e,s as t,t as n}from"./index-BYzu90vh.js";var r={};function i(n,r){return e(),t(`div`,null,`Это главная`)}var a=n(r,[[`render`,i]]);export{a as default};

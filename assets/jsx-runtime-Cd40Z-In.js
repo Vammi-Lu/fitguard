@@ -1,0 +1,1 @@
+import{u as e}from"./index-BYzu90vh.js";function t(t,n,r){let{children:i}=n;return delete n.children,arguments.length>2&&(n.key=r),e(t,n,i)}export{t};
